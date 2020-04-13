@@ -4,8 +4,8 @@ const paddleHeight = 150;
 const paddleMargin = 10;
 
 const ballSize = 30;
-const aiSpeed = 6;
-const ballSpeed = 8;
+const aiSpeed = 15;
+const ballSpeed = 9;
 
 let ball;
 
@@ -23,7 +23,7 @@ function setup() {
      ball = new Ball();
 }
 function draw() {
-     background(0, 0, 0, 20);
+     background(0, 0, 0);
      humanPaddle.playerMove();
      humanPaddle.show();
      aiPaddle.aiMove();

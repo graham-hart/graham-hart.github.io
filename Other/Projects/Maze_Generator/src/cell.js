@@ -31,6 +31,10 @@ class Cell {
     if (this.walls.r) {
       line(cellSize - margin, 0, cellSize - margin, cellSize - margin);
     }
+    point(0, 0);
+    point(cellSize - margin, 0);
+    point(0, cellSize - margin);
+    point(cellSize - margin, cellSize - margin)
     pop();
   }
   getNeighbors() {

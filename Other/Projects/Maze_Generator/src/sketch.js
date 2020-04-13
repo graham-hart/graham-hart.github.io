@@ -53,8 +53,9 @@ function draw() {
     let winCell = cells[cellct - 1][cellct - 1];
     currentCell = null;
     currentColor = color(255, 0, 0);
-    visitedColor = wallColor;
+    visitedColor = color(0, 0, 0, 0);
     firstColor = currentColor;
+    background(wallColor)
     wallColor = 0;
     for (let r of cells) {
       for (let c of r) {

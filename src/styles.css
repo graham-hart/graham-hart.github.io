@@ -1,3 +1,11 @@
+:root {
+     --link-border-radius: 5px;
+     --link-margin: 20px;
+     --link-color: #27456e;
+     --link-bg: #f1f1f1;
+     --link-bg-hover: #192940;
+     --link-color-hover: #e8e8e8;
+}
 body {
      width: 100%;
      height: 100%;
@@ -37,12 +45,14 @@ h2 {
      text-align: center;
      margin: auto;
      width: 50%;
+     height: auto;
      margin-top: 50px;
      padding: 30px;
 }
 .link:hover {
-     color: #111d2e;
-     border: 2px dashed #111d2e;
+     /* text-decoration: underline; */
+     color: var(--link-color-hover);
+     background-color: var(--link-bg-hover);
 }
 .link {
      color: #27456e;
@@ -50,6 +60,9 @@ h2 {
      font-size: 40px;
      text-decoration: none;
      padding: 10px;
+     background-color: var(--link-bg);
+     border-radius: var(--link-border-radius);
+     margin: var(--link-margin);
 }
 
 ::-webkit-scrollbar {

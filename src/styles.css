@@ -1,6 +1,7 @@
 :root {
      --link-border-radius: 5px;
-     --link-color: #3b7ad1;
+     --link-smallscreen-color: #3b7ad1;
+     --link-bigscreen-color: #5784c2;
      --link-bg: #3f3f3f;
      --link-bg-hover: #5784c2;
      --link-color-hover: #3d3d3d;
@@ -105,4 +106,17 @@ h2 {
 }
 ::-webkit-scrollbar-thumb:hover {
      background: #555;
+}
+
+@media (min-width: 500px) {
+     .link {
+          background-color: var(--link-bg);
+          color: var(--link-bigscreen-color);
+     }
+}
+@media (max-width: 500px) {
+     .link {
+          background-color: #ff00;
+          color: var(--link-smallscreen-color);
+     }
 }

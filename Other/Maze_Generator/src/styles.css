@@ -1,0 +1,72 @@
+body {
+     font-family: Helvetica;
+     padding: 0;
+     margin: 0;
+     overflow: hidden;
+     background-color: #222;
+}
+#download {
+     position: absolute;
+     right: 5%;
+     top: 0;
+     height: 30%;
+     width: 40%;
+     font-size: 600%;
+     background: none;
+     background-image: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0.4) 51%
+     );
+     border: none;
+     color: white;
+     font-weight: bolder;
+     text-align: center;
+}
+button:focus {
+     outline: 0;
+}
+#download:hover {
+     background-image: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.1) 50%,
+          rgba(255, 255, 255, 0.2) 51%
+     );
+}
+#restart:hover {
+     background-image: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.1) 50%,
+          rgba(255, 255, 255, 0.2) 51%
+     );
+}
+#restart {
+     position: absolute;
+     right: 5%;
+     bottom: 0%;
+     width: 40%;
+     font-size: 600%;
+     background: none;
+     background-image: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0.4) 51%
+     );
+     border: none;
+     color: white;
+     font-weight: bolder;
+     text-align: center;
+}
+
+.size {
+     height: 30%;
+     position: absolute;
+     right: 0;
+     /* bottom: -200; */
+     width: 20%;
+     right: 15%;
+}

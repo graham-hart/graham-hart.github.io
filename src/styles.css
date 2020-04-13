@@ -1,8 +1,8 @@
 :root {
      --link-border-radius: 5px;
-     --link-color: #27456e;
-     --link-bg: #f1f1f1;
-     --link-bg-hover: #192940;
+     --link-color: #bcd8ff;
+     --link-bg: #3b3b3b;
+     --link-bg-hover: #5784c2;
      --link-color-hover: #e8e8e8;
      --page-background-color: #1d1d1d;
      --page-text-color: #f1f1f1;
@@ -58,7 +58,7 @@ h2 {
      background-color: var(--link-bg-hover);
 }
 .link {
-     color: #27456e;
+     color: var(--link-color);
      font-weight: bold;
      font-size: 40px;
      text-decoration: none;

@@ -65,7 +65,7 @@ h2 {
 #links {
      text-align: center;
      margin: auto;
-     width: 50%;
+     width: 80%;
      height: auto;
      margin-top: 50px;
      padding: 30px;
@@ -89,7 +89,9 @@ h2 {
      background-color: #d1d1d1;
      padding: 40px;
      border-radius: 5px;
-     margin: 20px;
+     margin-top: 20px;
+     margin: auto;
+     /* width: 20%; */
 }
 
 ::-webkit-scrollbar {

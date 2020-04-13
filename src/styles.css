@@ -1,6 +1,6 @@
 :root {
      --link-border-radius: 5px;
-     --link-color: #bcd8ff;
+     --link-color: #3b7ad1;
      --link-bg: #3f3f3f;
      --link-bg-hover: #5784c2;
      --link-color-hover: #3d3d3d;
@@ -81,7 +81,7 @@ h2 {
      font-size: 40px;
      text-decoration: none;
      padding: 20px;
-     background-color: var(--link-bg);
+     /* background-color: var(--link-bg); */
      /* border-radius: var(--link-border-radius); */
      width: 50% !important;
 }

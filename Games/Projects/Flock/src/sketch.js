@@ -85,6 +85,7 @@ function updateSettings() {
   localStorage.setItem("SECOND_COLOR", SECOND_COLOR);
   $("body").css("background-color", SECOND_COLOR);
   $(".popup").css("background-color", SECOND_COLOR);
+  $(".popup").css("border-color", MAIN_COLOR);
   $(".button").css("border-color", MAIN_COLOR);
   $(".setting").css("border-color", MAIN_COLOR);
   $("body").css("color", MAIN_COLOR);

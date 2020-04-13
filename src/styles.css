@@ -1,11 +1,18 @@
 :root {
      --link-border-radius: 5px;
      --link-color: #bcd8ff;
-     --link-bg: #3b3b3b;
+     --link-bg: #3f3f3f;
      --link-bg-hover: #5784c2;
-     --link-color-hover: #e8e8e8;
+     --link-color-hover: #3d3d3d;
      --page-background-color: #1d1d1d;
      --page-text-color: #f1f1f1;
+     --heading-bg-color: #a1a1a1;
+     --heading-border-radius: 5px;
+     --heading-width: 20%;
+     --paragraph-bg-color: #313131;
+     --paragraph-border-radius: 10px;
+     --small-bg-color: #1f1f1f;
+     --small-border-radius: 2px;
 }
 body {
      width: 100%;
@@ -16,20 +23,35 @@ body {
      color: var(--page-text-color);
 }
 
-p {
+#p {
      font-size: 30px;
      text-align: center;
      width: 50%;
      margin: auto;
      margin-top: 80px;
      font-weight: bold;
+     background-color: var(--paragraph-bg-color);
+     border-radius: var(--paragraph-border-radius);
+     padding: 20px;
 }
+#small {
+     font-size: 15px;
+     margin-top: 40px !important;
+     max-width: 20%;
+     border-radius: var(--small-border-radius);
+     margin: auto;
+     text-align: center;
+     background-color: var(--small-bg-color);
+}
+
 h1 {
      font-size: 60px;
      text-align: center;
-     width: 50%;
+     width: var(--heading-width);
      margin: auto;
      margin-top: 80px;
+     background-color: var(--heading-bg-color);
+     border-radius: var(--heading-border-radius);
 }
 h2 {
      font-size: 20px !important;
@@ -37,11 +59,6 @@ h2 {
      width: 50%;
      margin: auto;
      margin-top: 20px;
-}
-
-#small {
-     font-size: 20px !important;
-     margin-top: 40px !important;
 }
 
 #links {

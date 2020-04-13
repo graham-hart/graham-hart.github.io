@@ -11,19 +11,19 @@
      --heading-width: 20%;
      --paragraph-bg-color: #313131;
      --paragraph-border-radius: 10px;
-     --small-bg-color: #1f1f1f;
+     --small-bg-color: #3f3f3f;
      --small-border-radius: 2px;
 }
 body {
      width: 100%;
      height: 100%;
-     font-family: Helvetica;
+     font-family: "Courier New", Courier, monospace;
      overflow-x: hidden;
      background-color: var(--page-background-color);
      color: var(--page-text-color);
 }
 
-#p {
+.p {
      font-size: 30px;
      text-align: center;
      width: 50%;
@@ -34,10 +34,10 @@ body {
      border-radius: var(--paragraph-border-radius);
      padding: 20px;
 }
-#small {
+.small {
      font-size: 15px;
      margin-top: 40px !important;
-     max-width: 20%;
+     max-width: 10%;
      border-radius: var(--small-border-radius);
      margin: auto;
      text-align: center;
@@ -47,7 +47,7 @@ body {
 h1 {
      font-size: 60px;
      text-align: center;
-     width: var(--heading-width);
+     max-width: 400px;
      margin: auto;
      margin-top: 80px;
      background-color: var(--heading-bg-color);

@@ -10,7 +10,7 @@ function setup() {
      createCanvas(windowWidth, windowHeight);
      frameRate(60)
      caster = new Caster();
-     for (let i = 0; i < 10; i++) {
+     for (let i = 0; i < 20; i++) {
           shapes.push(new Circle(random(width), random(height), random(50, 100)));
      }
      noCursor()

@@ -14,9 +14,7 @@ function setup() {
           shapes.push(new Circle(random(width), random(height), random(50, 100)));
      }
      noCursor()
-     if (windowWidth < 600) {
-          rotation = 0.005;
-     }
+     rotation = -0.005;
 }
 function draw() {
      background(51)

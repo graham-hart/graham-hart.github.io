@@ -95,6 +95,9 @@ h2 {
      margin: auto;
      /* width: 20%; */
 }
+.mobiledetector {
+     display: block;
+}
 
 ::-webkit-scrollbar {
      width: 10px;

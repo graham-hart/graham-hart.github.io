@@ -40,8 +40,8 @@ class Ball {
      }
      edges() {
           if (this.pos.x - ballSize <= 0 || this.pos.x + ballSize >= width) {
-               aiPaddle.pos.y = height / 2;
-               humanPaddle.pos.y = height / 2;
+               aiPaddle.pos.y = height / 2 - paddleHeight / 2;
+               humanPaddle.pos.y = height / 2 - paddleHeight / 2;
                if (this.pos.x < width / 2) {
                     aiScore++;
                } else {

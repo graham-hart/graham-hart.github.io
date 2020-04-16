@@ -7,7 +7,7 @@ let rotation = 0;
 
 function setup() {
      angleMode(DEGREES)
-     createCanvas(600, 600);
+     createCanvas(windowWidth, windowHeight);
      frameRate(60)
      caster = new Caster();
      for (let i = 0; i < 10; i++) {

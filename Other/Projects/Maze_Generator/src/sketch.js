@@ -1,4 +1,4 @@
-let cellct = 10;
+let cellct = 20;
 let cellSize;
 let cells = [];
 let wallWidth = 2;
@@ -6,7 +6,7 @@ let currentCell;
 let stack = [];
 let start;
 let finish;
-let margin = 2;
+let margin = 0;
 let showWhileGen = true;
 let done = false;
 let wallColor = 200;

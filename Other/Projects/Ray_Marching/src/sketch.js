@@ -21,7 +21,7 @@ function draw() {
      for (let shape of shapes) {
           shape.show();
      }
-     caster.update(rotation, mouseX, mouseY);
+     caster.update(rotation, mouseX || width / 2, mouseY || height / 2);
      caster.show();
      //d
      if (keyIsDown(68)) {

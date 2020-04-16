@@ -22,6 +22,21 @@ class Ray {
                line(pos.x, pos.y, pos.x + dir.x, pos.y + dir.y)
                pos.add(dir);
           }
+          if (d <= 1 && pos.x > 0 && pos.x < width && pos.y > 0 & pos.y < height) {
+               this.closestS(pos).strokeW = 5;
+               this.closestS(pos).fillC = color(20, 100, 200, 50);
+               for (let s of shapes) {
+                    if (s != this.closestS(pos)) {
+                         s.fillC = null;
+                         s.strokeW = 1;
+                    }
+               }
+          } else {
+               for (let s of shapes) {
+                    s.fillC = null;
+                    s.strokeW = 1;
+               }
+          }
           pop()
      }
      bestDist(p) {
@@ -35,5 +50,17 @@ class Ray {
           if (bestD != Infinity) {
                return bestD;
           }
+     }
+     closestS(p) {
+          let bestS;
+          let bestD = Infinity;
+          for (let s of shapes) {
+               let d = p5.Vector.dist(p, s.pos) - s.s / 2;
+               if (d < bestD) {
+                    bestS = s;
+                    bestD = d;
+               }
+          }
+          return bestS;
      }
 }

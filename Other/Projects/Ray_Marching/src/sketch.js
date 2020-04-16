@@ -25,9 +25,11 @@ function draw() {
      }
      caster.update(rotation, mouseX, mouseY);
      caster.show();
+     //d
      if (keyIsDown(68)) {
-          rotation -= 0.0005d
+          rotation -= 0.0005
      }
+     //a
      if (keyIsDown(65)) {
           rotation += 0.0005
      }

@@ -19,15 +19,19 @@ class Paddle {
      }
      aiMove() {
           if (ball.pos.y > this.pos.y + paddleHeight * (3 / 4)) {
-               this.pos.y += aiSpeed;
+               this.pos.y += speed;
           }
           if (ball.pos.y < this.pos.y + paddleHeight / 4) {
-               this.pos.y -= aiSpeed;
+               this.pos.y -= speed;
           }
           this.pos.y = constrain(this.pos.y, 0, height - paddleHeight);
      }
      playerMove() {
-          this.pos.y = mouseY - (paddleHeight / 2);
+          if (moving == "up") {
+               this.pos.y -= speed;
+          } else if (moving == "down") {
+               this.pos.y += speed
+          }
           this.pos.y = constrain(this.pos.y, 0, height - paddleHeight);
      }
 }

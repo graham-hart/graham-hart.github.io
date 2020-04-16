@@ -1,12 +1,12 @@
-let cellct = 20;
+let cellct = 10;
 let cellSize;
 let cells = [];
-let wallWidth = 5;
+let wallWidth = 2;
 let currentCell;
 let stack = [];
 let start;
 let finish;
-let margin = 0;
+let margin = 2;
 let showWhileGen = true;
 let done = false;
 let wallColor = 200;
@@ -30,13 +30,13 @@ function setup() {
   firstCell = cells[0][0];
   currentCell = firstCell;
   currentCell.visited = true;
-  currentColor = color(0, 25, 32.5);
+  currentColor = color(0, 220, 255);
   visitedColor = color(0, 50, 65);
   firstColor = color(0, 195, 155);
 }
 
 function draw() {
-  background(51);
+  background(color(0, 25, 32.5));
   let unvisited = 0;
   for (let r of cells) {
     for (let c of r) {
@@ -50,11 +50,10 @@ function draw() {
   }
   if (unvisited === 0) {
     noLoop();
-    let winCell = cells[cellct - 1][cellct - 1];
     currentCell = null;
     currentColor = color(255, 0, 0);
-    visitedColor = color(0, 0, 0, 0);
-    firstColor = currentColor;
+    visitedColor = 200;
+    firstColor = color(255, 0, 0);
     background(wallColor)
     wallColor = 0;
     for (let r of cells) {
@@ -62,13 +61,8 @@ function draw() {
         c.show();
       }
     }
-    translate(
-      winCell.pos.x * cellSize + margin,
-      winCell.pos.y * cellSize + margin
-    );
     fill(currentColor);
     noStroke();
-    rect(0, 0, cellSize - margin - wallWidth, cellSize - margin - wallWidth);
     done = true;
   }
   stack.push(currentCell);
@@ -107,7 +101,7 @@ function restart() {
   currentCell = firstCell;
   currentCell.visited = true;
   currentColor = color(0, 25, 32.5);
-  wallColor = visitedColor;
+  wallColor = 200;
   visitedColor = color(0, 50, 65);
   firstColor = color(0, 195, 155);
   loop();

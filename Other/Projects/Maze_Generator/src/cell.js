@@ -15,6 +15,9 @@ class Cell {
       } else if (this == firstCell) {
         fill(firstColor);
       }
+      if (this.pos.x == cellct - 1 && this.pos.y == cellct - 1) {
+        fill(firstColor)
+      }
       rect(0, 0, cellSize - margin, cellSize - margin);
     }
     stroke(wallColor);
@@ -32,10 +35,6 @@ class Cell {
       line(cellSize - margin, 0, cellSize - margin, cellSize - margin);
     }
     strokeWeight(wallWidth / 2)
-    point(0, 0);
-    point(cellSize - margin, 0);
-    point(0, cellSize - margin);
-    point(cellSize - margin, cellSize - margin)
     pop();
   }
   getNeighbors() {

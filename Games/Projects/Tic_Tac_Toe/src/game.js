@@ -4,7 +4,7 @@ const canvS = 600;
 canv.height = canvS;
 canv.width = canv.height;
 
-const center = {x: canvS / 2, y: canvS / 2};
+const center = { x: canvS / 2, y: canvS / 2 };
 
 const l = canvS / 3;
 let rect = canv.getBoundingClientRect();
@@ -25,12 +25,12 @@ let playerColors = {
 }
 
 canv.addEventListener("mouseup", function (e) {
-    if(CheckWin() === null) {
+    if (CheckWin() === null) {
         let mX = e.clientX - rect.left;
         let mY = e.clientY - rect.top;
-        if(GetSection(mX, mY)) {
+        if (GetSection(mX, mY)) {
             Update();
-            if(currentPlayer == p1 && CheckWin() === null) {
+            if (currentPlayer == p1 && CheckWin() === null) {
                 currentPlayer = p2;
                 BestMove();
                 currentPlayer = p1;
@@ -59,21 +59,21 @@ function Line(x1, y1, x2, y2) {
 function GetSection(x, y) {
     let col;
     let row;
-    if(x < l) {
+    if (x < l) {
         col = 0;
-    } else if(l < x && x < 2 * l) {
+    } else if (l < x && x < 2 * l) {
         col = 1;
     } else {
         col = 2;
     }
-    if(y < l) {
+    if (y < l) {
         row = 0;
-    } else if(l < y && y < 2 * l) {
+    } else if (l < y && y < 2 * l) {
         row = 1;
     } else {
         row = 2;
     }
-    if(board[row][col] == "") {
+    if (board[row][col] == "") {
         board[row][col] = currentPlayer;
         return true;
     } else {
@@ -89,9 +89,9 @@ function Setup() {
 function Update() {
     ctx.clearRect(0, 0, canvS, canvS);
     DrawBoard();
-    for(let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
         let letterY = l / 2 + (l * i) + 28;
-        for(let j = 0; j < 3; j++) {
+        for (let j = 0; j < 3; j++) {
             let letterX = l / 2 + (l * j) - 37;
             ctx.font = "100px Helvetica";
             ctx.fillStyle = playerColors[board[i][j]];
@@ -107,35 +107,35 @@ function AllEqual(a, b, c) {
 function CheckWin() {
     let winner = null;
     //Rows
-    for(let i = 0; i < 3; i++) {
-        if(AllEqual(board[i][0], board[i][1], board[i][2])) {
+    for (let i = 0; i < 3; i++) {
+        if (AllEqual(board[i][0], board[i][1], board[i][2])) {
             winner = board[i][0];
         }
     }
     //Columns
-    for(let i = 0; i < 3; i++) {
-        if(AllEqual(board[0][i], board[1][i], board[2][i])) {
+    for (let i = 0; i < 3; i++) {
+        if (AllEqual(board[0][i], board[1][i], board[2][i])) {
             winner = board[0][i];
         }
     }
     //Diagonal From Top-Left
-    if(AllEqual(board[0][0], board[1][1], board[2][2])) {
+    if (AllEqual(board[0][0], board[1][1], board[2][2])) {
         winner = board[0][0];
     }
     //Diagonal From Top-Right
-    if(AllEqual(board[0][2], board[1][1], board[2][0])) {
+    if (AllEqual(board[0][2], board[1][1], board[2][0])) {
         winner = board[0][2];
     }
     //Check if there are any spaces left
     let openCount = 0;
-    for(let i = 0; i < 3; i++) {
-        for(let j = 0; j < 3; j++) {
-            if(board[i][j] == "") {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (board[i][j] == "") {
                 openCount++;
             }
         }
     }
-    if(winner == null && openCount == 0) {
+    if (winner == null && openCount == 0) {
         winner = "tie";
     }
     return winner;
@@ -149,19 +149,19 @@ const scores = {
 
 function minimax(b, isMaximizing, depth) {
     let result = CheckWin();
-    if(result != null) {
+    if (result != null) {
         return scores[result];
     }
-    if(isMaximizing) {
+    if (isMaximizing) {
         let bestScore = -Infinity;
-        for(let i = 0; i < 3; i++) {
-            for(let j = 0; j < 3; j++) {
-                if(b[i][j] == "") {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (b[i][j] == "") {
                     b[i][j] = aiPlayer;
-                    let score = minimax(b, false, depth+1);
+                    let score = minimax(b, false, depth + 1);
                     //console.log("ROW : " + i + ", COL : " + j + ", SCORE : " + score + ", BEST_SCORE : " + bestScore + ", IS_MAX : " + isMaximizing);
                     b[i][j] = "";
-                    if(score > bestScore) {
+                    if (score > bestScore) {
                         bestScore = score;
                     }
                 }
@@ -170,13 +170,13 @@ function minimax(b, isMaximizing, depth) {
         return bestScore;
     } else {
         let bestScore = Infinity;
-        for(let i = 0; i < 3; i++) {
-            for(let j = 0; j < 3; j++) {
-                if(b[i][j] == "") {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (b[i][j] == "") {
                     b[i][j] = humanPlayer;
                     let score = minimax(b, true, depth + 1);
                     b[i][j] = "";
-                    if(score < bestScore) {
+                    if (score < bestScore) {
                         bestScore = score;
                     }
                 }
@@ -189,15 +189,15 @@ function minimax(b, isMaximizing, depth) {
 function BestMove() {
     let bestScore = -Infinity;
     let move;
-    for(let i = 0; i < 3; i++) {
-        for(let j = 0; j < 3; j++) {
-            if(board[i][j] == "") {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (board[i][j] == "") {
                 board[i][j] = aiPlayer;
                 let score = minimax(board, false, 0);
                 board[i][j] = "";
-                if(score > bestScore) {
+                if (score > bestScore) {
                     bestScore = score;
-                    move = {i, j};
+                    move = { i, j };
                 }
             }
         }
@@ -207,7 +207,7 @@ function BestMove() {
 
 function OWins() {
     ctx.beginPath();
-    ctx.arc(center.x, center.y, (canvS / 2) - 30, 0, 2*Math.PI);
+    ctx.arc(center.x, center.y, (canvS / 2) - 30, 0, 2 * Math.PI);
     ctx.lineWidth = 5;
     ctx.strokeStyle = playerColors["O"];
     ctx.stroke();

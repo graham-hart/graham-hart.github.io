@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>Conway's Game Of Life</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+     <link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body>
+     <div class="section" id="welcome">
+          <h3>Welcome To <br> CONWAY'S GAME OF LIFE</h3>
+     </div>
+     <div class="section" id="instrux">
+          <h3>INSTRUCTIONS</h3>
+          <p>Start the game by marking cells as "alive" or "dead". Click to mark a cell as alive, shift-click to mark it
+               as dead. Once you're done, press space. Every timestep, cells will re-evaluate their state based on these
+               conditions:
+          </p>
+          <p class="rules">
+               <br>
+               <b>DEAD: </b>
+               <br>
+               <br>
+               -- If a cell has less than 2 neighbors, it will die.
+               <br>
+               -- If a cell has greater than 3 neighbors, it will die.
+               <br>
+               <br>
+               <br>
+               <b>REBORN: </b>
+               <br>
+               <br>
+               -- If a dead cell has exactly 3 neighbors, it will become alive
+               <br>
+               <br>
+               <br>
+               <br>
+               If none of these cases are true, the cell will keep it's state.
+          </p>
+          <p>Keep your cells alive for as long as possible!</p>
+          <button id="start">
+               <p>GOT IT? <br>START</p>
+          </button>
+     </div>
+     <!-- <button id="run">
+          <p>RUN</p>
+     </button>
+     <button id="toggle">
+          <p>TOGGLE PLACEMODE</p>
+     </button> -->
+     <script src="src/intro.js"></script>
+     <script src="src/sketch.js"></script>
+</body>
+
+</html>

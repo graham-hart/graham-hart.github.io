@@ -2,6 +2,7 @@ body {
      padding: 0;
      margin: 0;
      width: 100%;
+     font-family: Helvetica;
 }
 canvas {
      position: absolute;
@@ -19,10 +20,14 @@ canvas {
 #newMaze {
      bottom: 5%;
 }
+#setwidth {
+     bottom: 15%;
+     height: 100px;
+     padding: 20px;
+}
 
 button {
      position: absolute;
-     bottom: 20%;
      left: 45%;
      right: 55%;
      width: 10%;
@@ -30,4 +35,13 @@ button {
      height: 30px;
      background-color: #f1f1f1;
      border: 1px solid rgba(68, 68, 68);
+     text-align: center;
+}
+
+#download:hover,
+#newMaze:hover {
+     background-color: #d1d1d1;
+}
+#cellct {
+     width: 40%;
 }

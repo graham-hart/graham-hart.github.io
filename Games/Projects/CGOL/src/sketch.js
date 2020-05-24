@@ -10,7 +10,7 @@ let mode = "draw";
 
 function setup() {
      createCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
-     frameRate(3);
+     frameRate(5);
      cellsize = width / cellrw;
      cells = arr2d(cellrw)
      $("#start").click(function () {
@@ -106,22 +106,23 @@ function edit() {
                     cells[coords.x][coords.y] = mode != "erase";
                     edited.push(coords);
                }
-               background(255)
-               for (let i = 0; i < cells.length; i++) {
-                    for (let j = 0; j < cells.length; j++) {
-                         stroke(0)
-                         strokeWeight(1);
-                         if (cells[i][j]) {
-                              fill(0);
-                         } else {
-                              noFill();
-                         }
-                         rect(i * cellsize, j * cellsize, cellsize)
+          }
+          background(255)
+          for (let i = 0; i < cells.length; i++) {
+               for (let j = 0; j < cells.length; j++) {
+                    stroke(0)
+                    strokeWeight(1);
+                    if (cells[i][j]) {
+                         fill(0);
+                    } else {
+                         noFill();
                     }
+                    rect(i * cellsize, j * cellsize, cellsize)
                }
           }
           if (keyCode == 13) {
                key = null;
+               // saveCanvas("CGOL_START", "png")
                clearInterval(interval)
                loop();
           }

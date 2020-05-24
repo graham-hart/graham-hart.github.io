@@ -1,4 +1,4 @@
-let cellrw = 20;
+let cellrw = 50;
 let cellct = Math.pow(cellrw, 2);
 let alivechance = 0.1;
 let cells = [];

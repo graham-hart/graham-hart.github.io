@@ -5,6 +5,8 @@ let cells = [];
 let cellsize;
 let newGen;
 let editing = true;
+let edited = [];
+let mode = "draw";
 
 function setup() {
      createCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
@@ -91,33 +93,62 @@ function countN(arr, x, y) {
 }
 function edit() {
      let interval = setInterval(function () {
-          if (mouseIsPressed && !keyIsDown(16)) {
-               if (!cells[floor(mouseX / cellsize)][floor(mouseY / cellsize)]) {
-                    cells[floor(mouseX / cellsize)][floor(mouseY / cellsize)] = true;
-                    alivect++;
-               }
-          } else if (mouseIsPressed) {
-               if (cells[floor(mouseX / cellsize)][floor(mouseY / cellsize)]) {
-                    cells[floor(mouseX / cellsize)][floor(mouseY / cellsize)] = false;
-                    alivect--;
-               }
-          }
-          background(255)
-          for (let i = 0; i < cells.length; i++) {
-               for (let j = 0; j < cells.length; j++) {
-                    stroke(0)
-                    strokeWeight(1);
-                    if (cells[i][j]) {
-                         fill(0);
+          if (mouseIsPressed) {
+               coords = {x: floor(mouseX / cellsize), y: floor(mouseY / cellsize)}
+               if(edited.length == 0) {
+                    if(cells[coords.x][coords.y]) {
+                         mode = "erase";
                     } else {
-                         noFill();
+                         mode = "draw";
                     }
-                    rect(i * cellsize, j * cellsize, cellsize)
+               }
+               if(!contains(edited, coords)) {
+                    cells[coords.x][coords.y] = mode != "erase";
+                    edited.push(coords);
+               }
+               background(255)
+               for (let i = 0; i < cells.length; i++) {
+                    for (let j = 0; j < cells.length; j++) {
+                         stroke(0)
+                         strokeWeight(1);
+                         if (cells[i][j]) {
+                              fill(0);
+                         } else {
+                              noFill();
+                         }
+                         rect(i * cellsize, j * cellsize, cellsize)
+                    }
                }
           }
-          if (key == " ") {
+          if (keyCode == 13) {
+               key = null;
                clearInterval(interval)
                loop();
           }
      }, 10)
+}
+
+function contains(arr, val) {
+     for(let v of arr) {
+          if(v.x == val.x && v.y == val.y) {
+               return true;
+          }
+          // console.log(v, val)
+     }
+     return false;
+}
+function mouseReleased() {
+     edited = [];
+     mode = null;
+}
+function keyReleased() {
+     if(key === "r") {
+          cells = arr2d(cellrw)
+          noLoop();
+          edit();
+     } else if(key === " ") {
+          noLoop();
+          key = null;
+          edit();
+     }
 }

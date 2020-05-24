@@ -3,3 +3,4 @@ Remove Shift-Click -- Click toggles state.
 Add Start Button
 Add Restart Button
 Add RowNum Slider
+Add Pausing

@@ -4,6 +4,7 @@
 <head>
   <title>Snake</title>
   <script src='../../../libraries/p5.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <link rel="stylesheet" href="src/styles.css" type="text/css" />
 </head>
 
@@ -11,6 +12,12 @@
   <script src="src/snake.js" type="text/javascript"></script>
   <script src="src/food.js" type="text/javascript"></script>
   <script src="src/sketch.js" type="text/javascript"></script>
+  <script>
+    let f;
+    $.get("highscores.txt", function(d) {
+      alert(d);
+    });
+  </script>
 </body>
 
 </html>

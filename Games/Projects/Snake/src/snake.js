@@ -12,14 +12,17 @@ class Snake {
   }
   show() {
     push();
-    if (graphicsType === "filled") {
-      fill(snakeColor);
-      noStroke();
-    } else {
-      stroke(snakeColor);
-      noFill();
-    }
+    colorMode(HSV, 100, 100, 100);
+    let hue = 0;
     for (let s of this.segments) {
+      if (graphicsType === "filled") {
+        fill(hue, 100, 100);
+        noStroke();
+      } else {
+        stroke(hue, 100, 100);
+        noFill();
+      }
+      hue += 10;
       rect(s.x * gridS, s.y * gridS, gridS, gridS);
     }
     pop();

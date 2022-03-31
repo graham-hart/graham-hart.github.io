@@ -12,7 +12,7 @@ class Snake {
   }
   show() {
     push();
-    colorMode(HSV, 100, 100, 100);
+    colorMode(HSB, 100, 100, 100);
     let hue = 0;
     for (let s of this.segments) {
       if (graphicsType === "filled") {

@@ -23,6 +23,9 @@ class Snake {
         noFill();
       }
       hue += 10;
+      if(hue > 100) {
+        hue = 0
+      }
       rect(s.x * gridS, s.y * gridS, gridS, gridS);
     }
     pop();
